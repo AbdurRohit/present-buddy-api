@@ -1,0 +1,237 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  border: 2px;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 3px 5px 30px;
+  width: 1000px;
+  height: 400px;
+}
+
+#text-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 20rem;
+  align-items: center;
+  /* padding: 20px; */
+}
+
+#upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 30rem;
+  /* padding: 20px; */
+}
+
+#b {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+  text-align: center;
+  font-size: 20px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#b:hover {
+  background-color: rgb(52, 78, 3);
+  transition: .13s ease-in;
+}
+
+#bb {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+  text-align: center;
+  font-size: 20px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#bb:hover {
+  background-color: rgb(52, 78, 3);
+  transition: .13s ease-in;
+}
+
+#text {
+  width: 400px;
+  height: 100px;
+  border-radius: 20px;
+  border-color: rgb(156, 92, 7);
+  padding: 10px;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: 1px solid black;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
+
+.custom-shape-divider-bottom-1707907537 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index:-1
+}
+
+.custom-shape-divider-bottom-1707907537 svg {
+  position: relative;
+  display: block;
+  width: calc(115% + 1.3px);
+  height: 500px;
+}
+
+.custom-shape-divider-bottom-1707907537 .shape-fill {
+  fill: #18DFEC;
+}
+
+
+
+.typewriter {
+color: black;
+font-family: monospace;
+overflow: hidden; /* Ensures the content is not revealed until the animation */
+border-right: .15em solid orange; /* The typwriter cursor */
+white-space: nowrap; /* Keeps the content on a single line */
+margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+letter-spacing: .15em; /* Adjust as needed */
+animation: 
+  typing 3.5s steps(30, end),
+  blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+from { width: 0 }
+to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+from, to { border-color: transparent }
+50% { border-color: orange }
+}
+
+#submitButton {
+  margin-top: 10px;
+  padding: 15px 30px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 18px;
+  outline: none;
+}
+
+#submitButton:hover {
+  background-color: #388e3c;
+  transform: scale(0.95);
+}
+
+#outputContainer {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#outputImage {
+  max-width: 100%;
+  height: auto;
+  transition: opacity 0.5s ease;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 600px) {
+  #converterForm {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+  }
+
+  #audioInput {
+      width: calc(70% - 10px);
+      margin-right: 10px;
+  }
+
+  #submitButton {
+      width: 30%;
+  }
+}
