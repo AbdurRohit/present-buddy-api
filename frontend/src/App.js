@@ -10,18 +10,53 @@ function App() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("http://localhost:8080/input", {
+      var res = await fetch("http://localhost:8080/input", {
         method: "POST",
-        body:({
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
           prompt: prompt
-        }),
+        }) 
       });
+      //prompt check
       console.log(prompt);
-      let resJson = await res.json();
+      let resJson = res.body;
+      //response check
+      console.log(resJson); 
+      //Decoding Readablestream response
+      const reader = resJson.getReader();
 
-      setResp = resJson;
+// Define a function to read the stream and accumulate its contents
+    async function readStream(reader) {
+      const chunks = [];
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) {
+          break;
+        }
+        chunks.push(value);
+      }
+      return chunks;
+    }
 
-      console.log(resJson);
+    // Call the function to read the stream
+    readStream(reader)
+      .then(chunks => {
+        // Concatenate the chunks into a single Uint8Array or string
+        const concatenated = new Uint8Array(chunks.reduce((acc, chunk) => acc.concat(Array.from(chunk)), []));
+        // Convert the concatenated data to string assuming it's text
+        const text = new TextDecoder().decode(concatenated);
+        // Now you can use the 'text' variable which contains the data from the stream
+        console.log("formated text: ",text);
+        setResp(text); //Storing response
+      })
+      .catch(error => {
+        // Handle errors that occur while reading the stream
+        console.error('Error reading stream:', error);
+      });
+
+
       if (res.status === 200) {
         console.log("Input successful");
       } else {
@@ -31,7 +66,6 @@ function App() {
       console.log(err);
     }
   };
-
   return (
     <div className="App">
       <h1 className=''>Present Buddy</h1>
