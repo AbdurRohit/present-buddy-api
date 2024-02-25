@@ -1,4 +1,4 @@
-# present-buddy-api
+# Present Buddy
 Generate PowerPoint presentation in on the go.
 
 
