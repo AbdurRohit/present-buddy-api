@@ -11,10 +11,28 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-
+//Working with Geg-AI
 async function genResponse(inp) {
+  const salt = "you are a presentation content creator. write content for 7 slides from the given information. Make sure the response is in json format and only the json array nothing else. " + `[
+    {
+      "title": "string",
+      "content": [
+        "string1",
+        "string2",
+        "string3"
+      ]
+    },
+    {
+      "title": "string",
+      "content": [
+        "string1",
+        "string2",
+        "string3"
+      ]
+    }, 
+    ]` + "make sure to follow above json object structure";
   const model = genAI.getGenerativeModel({ model: "gemini-pro"});
-  const prompt = inp;
+  const prompt = inp + salt;
   const result = await model.generateContent(prompt);
   const response = result.response;
   const text = response.text();
