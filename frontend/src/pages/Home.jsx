@@ -29,9 +29,9 @@ function Home() {
       const endIndex = rawResponse.lastIndexOf("]") + 1; // Include the closing bracket 
       const jsonString = rawResponse.substring(startIndex, endIndex);
 
-      console.log(jsonString);  
       Slides(jsonString);
-      setGeneratedText(jsonString);//TODO: REMOVE THIS LINE
+      console.log(jsonString);  
+      setGeneratedText("PPT generated");//TODO: REMOVE THIS LINE
     } catch (error) {
       console.error('Error:', error);
       setError("An error occurred while generating text. Please try again.");

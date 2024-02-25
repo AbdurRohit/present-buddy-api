@@ -1,24 +1,67 @@
 import pptxgen from "pptxgenjs";
 
-export default function Slides(jsonStirng) {
+export default function Slides(jsonStr) {
+  try {
+    const slidesData = Object.values(JSON.parse(jsonStr)); 
 
-  const jsonArray = JSON.parse(jsonStirng);
-  console.log(jsonArray);
-  // 1. Create a Presentation
-  let pres = new pptxgen();
+    let pres = new pptxgen();
 
-  // 2. Add a Slide to the presentation
-  let slide = pres.addSlide();
+    // Slide Master Definition
+    let slideMaster = pres.defineSlideMaster({
+      title: "Master Slide",
+      background: { fill: "F1F1F1" },
+      objects: [
+        { rect: { x: 0, y: 0.0, w: "100%", h: 0.5, fill: { transparency: 10, color: "003366" } } },
+        {
+          text: {
+            text: "PresentBuddy",
+            options: {
+              x: 0.5,
+              y: 0.0,
+              w: 9.0,
+              h: 0.6,
+              align: "center",
+              fontSize: 20,
+              color: "FFFFFF",
+            },
+          },
+        },
+      ],
+    });
 
-  // 3. Add 1+ objects (Tables, Shapes, etc.) to the Slide
-  slide.addText("Hello World from PptxGenJS...", {
-    x: 1.5,
-    y: 1.5,
-    color: "363636",
-    fill: { color: "F1F1F1" },
-    align: pres.AlignH.center,
-  });
+    // Create Slides from Data
+    slidesData.forEach((slideInfo) => {
+      let slide = pres.addSlide({ masterName: "Master Slide" });
 
-  // 4. Save the Presentation
-  pres.writeFile({ fileName: "Sample Presentation.pptx" });
+      // Heading
+      slide.addText(slideInfo.title, {
+        x: 1,
+        y: 1.2, 
+        fontSize: 20,
+        bold: true,
+        color: "003366",
+      });
+
+      // Bullet Points with Dynamic Positioning
+      const bulletYStart = 2;  // Initial Y position for the first bullet
+      const bulletSpacing = 0.5; // Spacing between bullets
+
+      slideInfo.content.forEach((bulletText, index) => {
+        slide.addText(bulletText, {
+          x: 1, 
+          y: bulletYStart + (index * bulletSpacing), 
+          fontSize: 16, 
+          color: '003366', 
+          bullet: true, 
+          indentLevel: 0
+        });
+      });
+    });
+
+    // Generate Presentation File
+    pres.writeFile("Presentation.pptx"); 
+  } catch (error) {
+    console.error("Error generating presentation:", error);
+    // You might want to display an error message to the user here
+  }
 }
