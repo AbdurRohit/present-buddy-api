@@ -14,7 +14,7 @@ function Home() {
     setError(null);
 
     try {
-      const apiResponse = await fetch('http://localhost:8080/input', {
+      const apiResponse = await fetch('https://present-buddy-api.onrender.com/input', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt })
