@@ -6,7 +6,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const cors = require("cors");//cros for headers
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://present-buddy-api.vercel.app/",
 };
 app.use(cors(corsOptions));
 
