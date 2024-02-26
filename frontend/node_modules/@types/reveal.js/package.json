@@ -1,0 +1,40 @@
+{
+    "name": "@types/reveal.js",
+    "version": "4.4.8",
+    "description": "TypeScript definitions for reveal.js",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/reveal.js",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "robertop87",
+            "githubUsername": "robertop87",
+            "url": "https://github.com/robertop87"
+        },
+        {
+            "name": "Nava2",
+            "githubUsername": "Nava2",
+            "url": "https://github.com/Nava2"
+        },
+        {
+            "name": "JPtenBerge",
+            "githubUsername": "JPtenBerge",
+            "url": "https://github.com/JPtenBerge"
+        },
+        {
+            "name": "Keita Watanabe",
+            "githubUsername": "kwatanwa17",
+            "url": "https://github.com/kwatanwa17"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/reveal.js"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "13b1ab15f80cf9410d92d9bb9c03156b50c4e4411854685d1b0a5fe94b867d5b",
+    "typeScriptVersion": "4.5"
+}
