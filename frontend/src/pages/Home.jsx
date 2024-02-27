@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Slides from './Slides';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function Home() {
 
@@ -41,7 +42,9 @@ function Home() {
   };
   
   return (
+    
     <div className="App">
+      <SpeedInsights/>
       <h1 className=''>Present Buddy</h1>
       <div className="typewriter">
         for automated presentation
