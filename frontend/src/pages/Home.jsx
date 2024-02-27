@@ -55,8 +55,8 @@ function Home() {
         <div id="main">
           <div id="container">
             <div id="text-field">
-              <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} id="text" placeholder="write a breif description.. " />
-              <button type="submit" id="submitButton">Go</button>
+              <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} id="text" placeholder="Provide information on the topic .. " />
+              <button type="submit" id="submitButton">Generate PPT</button>
             </div>
             <div id="upload">
               <input id="file" type="file" />
