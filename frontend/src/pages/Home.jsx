@@ -68,10 +68,9 @@ function Home() {
           </div>
         </div>
       </form>
-      {isLoading && <div>Generating text...</div>}
+      {isLoading && <div>Generating Presentaion...</div>}
       {error && <div className="error-message">{error}</div>}
       {generatedText && <div>{generatedText}</div>}
-      {/* <div dangerouslySetInnerHTML={{ __html: resp }} /> */}
 
     </div>
   );
