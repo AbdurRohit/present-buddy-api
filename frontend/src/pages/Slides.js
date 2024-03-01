@@ -14,7 +14,7 @@ export default function Slides(jsonStr) {
         { rect: { x: 0, y: 0.0, w: "100%", h: 0.5, fill: { transparency: 10, color: "003366" } } },
         {
           text: {
-            text: "PresentBuddy",
+            text: "PresentBuzz",
             options: {
               x: 0.5,
               y: 0.0,
