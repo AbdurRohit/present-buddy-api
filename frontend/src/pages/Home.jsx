@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import Slides from './Slides';
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Alert from 'react-bootstrap/Alert';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
+import img from '../images/pb';
 
 function Home() {
 
@@ -8,8 +17,10 @@ function Home() {
   const [generatedText, setGeneratedText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [show, setShow] = useState(false);
 
   const handleSubmit = async (event) => {
+if (prompt !== ""){
     event.preventDefault();
     setIsLoading(true);
     setError(null);
@@ -39,40 +50,59 @@ function Home() {
     } finally {
       setIsLoading(false);
     }
+  }
+else{
+    setShow(true)
+  }
   };
+
   
   return (
-    
-    <div className="App">
-      <SpeedInsights/>
-      <h1 className=''>Present Buddy</h1>
-      <div className="typewriter">
-        for automated presentation
-      </div>
-      <div className="custom-shape-divider-bottom-1707907537">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
-        </svg></div>
-      <form id='converterForm' onSubmit={handleSubmit}>
-
-        <div id="main">
-          <div id="container">
-            <div id="text-field">
-              <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} id="text" placeholder="Provide information on the topic .. " />
-              <button type="submit" id="submitButton">Generate PPT</button>
-            </div>
-            <div id="upload">
-              <input id="file" type="file" />
-              <button id="submitButton" type="upload" >Upload</button>
-            </div>
-          </div>
-        </div>
-      </form>
-      {isLoading && <div>Generating Presentaion...</div>}
-      {error && <div className="error-message">{error}</div>}
-      {generatedText && <div>{generatedText}</div>}
-
+    <>
+      <Navbar className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand href="#home">
+              <img
+                alt=""
+                src="{}"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />{' '}
+              React Bootstrap
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+    <div className='main'>
+       {/* <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+          <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+          <p>
+            Change this and that and try again. Duis mollis, est non commodo
+            luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+            Cras mattis consectetur purus sit amet fermentum.
+          </p>
+        </Alert> */}
+    <div className="heading">
+      <h1 className=''>Presentz</h1>
+        Automated presentation on the go ⽕
     </div>
+    <Container id="container">
+    <Form>
+      <Col>
+    <Form.Group className="flex-column" controlId="exampleForm.ControlTextarea1" id = "fgroup">
+      <Form.Control as="textarea" rows={8} value={prompt} onChange={(e) => setPrompt(e.target.value)} id="text" placeholder="Provide information on the topic .. " />
+    </Form.Group>
+        <h3>or</h3>
+    <Form.Group controlId="formFile" className="flex-column" id = "fgroup">
+        <Form.Control type="file" />
+      </Form.Group>
+      <Button type="submit" id="submitButton">Generate ppt</Button>
+      </Col>
+    
+  </Form>
+  </Container>
+  </div>
+  </>
   );
 }
 
