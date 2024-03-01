@@ -1,5 +1,5 @@
 # Present Buddy
-Generate PowerPoint presentation in on the go using the power of Generative AI.
+Generate PowerPoint presentation in on the go using the power of Generative AI 
 
 # Installation
 
