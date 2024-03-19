@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Slides from './Slides';
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -60,6 +61,7 @@ function Home() {
   return (
     <>
     <SpeedInsights/>
+    <Analytics/>
       <Navbar className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="#home">
