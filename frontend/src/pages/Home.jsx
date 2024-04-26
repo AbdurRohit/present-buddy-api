@@ -72,7 +72,7 @@ function Home() {
               height="30"
               className="d-inline-block align-top"
             />{' '}
-            Present Buzz
+            Present Z
           </Navbar.Brand>
         </Container>
       </Navbar>
@@ -90,7 +90,8 @@ function Home() {
         </div>
         <div className="heading">
           We got you, introducing 
-          <h1>PresentBuzz</h1>
+          <h1>Present Z</h1>
+          The Present buddy
 
         </div>
         <Container id="container">
