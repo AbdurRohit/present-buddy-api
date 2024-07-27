@@ -5,10 +5,10 @@ const port = 8080
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const cors = require("cors");//cros for headers
 
-const corsOptions = {
-  origin: ["https://present-buddy-api.vercel.app", "https://presentz.app"],
-};
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: 'https://www.presentz.app'
+}));
+
 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 //Working with Geg-AI
