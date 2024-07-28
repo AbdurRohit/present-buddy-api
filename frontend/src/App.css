@@ -22,7 +22,7 @@ body {
   height: auto;
   backdrop-filter: blur(10px);  /* Key property for the blur effect */
   -webkit-backdrop-filter: blur(10px); /* Support for older Safari browsers */
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent background */
   border-radius: 10px; /* Optional rounded corners */
   padding: 20px;  
 }

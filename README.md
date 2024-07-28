@@ -27,7 +27,7 @@ npm install
 ```
 ### Frontend
 ```
-cd frontend 
+cd front-end 
 npm install
 ```
 
