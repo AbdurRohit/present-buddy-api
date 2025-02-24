@@ -6,28 +6,28 @@ export default function Slides(jsonStr) {
 
     let pres = new pptxgen();
 
-    // Slide Master Definition
-    let slideMaster = pres.defineSlideMaster({
-      title: "Master Slide",
-      background: { fill: "F1F1F1" },
-      objects: [
-        { rect: { x: 0, y: 0.0, w: "100%", h: 0.5, fill: { transparency: 10, color: "003366" } } },
-        {
-          text: {
-            text: "PresentBuzz",
-            options: {
-              x: 0.5,
-              y: 0.0,
-              w: 9.0,
-              h: 0.6,
-              align: "center",
-              fontSize: 20,
-              color: "FFFFFF",
-            },
-          },
-        },
-      ],
-    });
+    // // Slide Master Definition
+    // let slideMaster = pres.defineSlideMaster({
+    //   title: "Master Slide",
+    //   background: { fill: "F1F1F1" },
+    //   objects: [
+    //     { rect: { x: 0, y: 0.0, w: "100%", h: 0.5, fill: { transparency: 10, color: "003366" } } },
+    //     {
+    //       text: {
+    //         text: "PresentBuzz",
+    //         options: {
+    //           x: 0.5,
+    //           y: 0.0,
+    //           w: 9.0,
+    //           h: 0.6,
+    //           align: "center",
+    //           fontSize: 20,
+    //           color: "FFFFFF",
+    //         },
+    //       },
+    //     },
+    //   ],
+    // });
 
     // Create Slides from Data
     slidesData.forEach((slideInfo) => {
@@ -62,6 +62,5 @@ export default function Slides(jsonStr) {
     pres.writeFile("Presentation.pptx"); 
   } catch (error) {
     console.error("Error generating presentation:", error);
-    // You might want to display an error message to the user here
   }
 }
